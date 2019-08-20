@@ -12,6 +12,16 @@ import globalAlert from '@views/Parts/GlobalAlert'
 
 export default {
   name: 'Main',
+  data () {
+    return {
+      formData: {
+        email: 'michaelchoou@sina.com',
+        phone: '',
+        type: 'email',
+        password: 'zf18021510064',
+      }
+    }
+  },
   asyncData ({ store, route, accessToken = '' }) {
     // 触发 action 后，会返回 Promise
     return Promise.all([
