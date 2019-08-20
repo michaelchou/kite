@@ -73,17 +73,21 @@ export default {
   data () {
     return {
       formData: {
-        email: '',
+        email: 'michaelchoou@sina.com',
         phone: '',
         type: 'email',
-        password: '',
+        password: 'zf18021510064',
       }
     }
+  },
+  created () {
+    this.login();
   },
   methods: {
     login () {
       this.$store.dispatch('sign/LOGIN', this.formData)
         .then(res => {
+          console.log(res, 'auto login');
           if (res.state === 'success') {
             this.$message.success(res.message)
             this.$refs.login.reset()
