@@ -196,7 +196,7 @@ export default {
   },
   created () {
     this.initArticleTagAll()
-    this.getUserArticleBlogAll()
+    // this.getUserArticleBlogAll()
     if (this.$route.params.type !== "create") {
       this.isEditArticle()
     }
