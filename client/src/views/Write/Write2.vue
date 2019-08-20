@@ -354,6 +354,7 @@ export default {
         origin_content: this.write.content /*源内容*/,
         source: this.write.source, // 来源 （1原创 2转载）
         type: 1, // 类型 （1:文章;2:提问,3:说说 ）
+        status: 2,
         user_blog_ids: this.write.user_blog_ids,
         article_tag_ids: this
           .getObjectValues(this.currentArticleTagArr)
@@ -373,18 +374,21 @@ export default {
           if (res.state === "success") {
             this.create_show_modal = false;
             this.$router.push({
-              name: "userBlog",
+              name: "home",
               params: { uid: this.personalInfo.user.uid }
             });
-            if (this.$route.params.type === "create") {
-              this.$message.warning(
-                "文章创建成功，最晚会在4小时内由人工审核通过后发布，超过24点文章，将在次日8.30审核后发布"
-              );
-            } else {
-              this.$message.warning(
-                "文章更新后需要重新审核，最晚会在4小时内由人工审核通过后发布，超过24点文章，将在次日8.30审核后发布"
-              );
-            }
+            this.$message.success(
+              "文章创建成功"
+            );
+            // if (this.$route.params.type === "create") {
+            //   this.$message.warning(
+            //     "文章创建成功，最晚会在4小时内由人工审核通过后发布，超过24点文章，将在次日8.30审核后发布"
+            //   );
+            // } else {
+            //   this.$message.warning(
+            //     "文章更新后需要重新审核，最晚会在4小时内由人工审核通过后发布，超过24点文章，将在次日8.30审核后发布"
+            //   );
+            // }
           } else {
             this.$message.warning(res.message);
           }
