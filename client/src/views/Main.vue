@@ -37,7 +37,7 @@ export default {
       .then(res => {
         console.log(res, 'auto login');
         if (res.state === 'success') {
-          this.$message.success(res.message)
+          // this.$message.success(res.message)
           // this.$refs.login.reset()
           cookie.set('accessToken', res.data.token, 7)
           this.$store.commit('SET_IS_LOGIN', false)
