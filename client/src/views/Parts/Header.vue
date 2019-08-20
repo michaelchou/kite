@@ -215,7 +215,7 @@ export default {
         position: absolute;
         top: 60px;
         color: rgba(0, 0, 0, 0.07);
-        content: "";
+        content: '';
         width: 100%;
         height: 2px;
       }
@@ -230,7 +230,7 @@ export default {
       .navbar-brand {
         margin-right: 30px;
         &.logo-text {
-          font-size: 25px;
+          font-size: 18px;
           color: #e67e7e;
         }
         &.logo-img {
