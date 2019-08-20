@@ -17,7 +17,7 @@
            @click="switchRouter"
            class="btn-note"
            id="js-btn-note">
-          <i class="iconfont icon-xiezuo"></i>写文章
+          <i class="iconfont icon-xiezuo"></i>发布信息
         </a>
         <!--<span class="middle-line"></span>
                 <a href="/daily_recommend" class="btn-dynamic js-publish-btn">发说说</a>-->
@@ -99,11 +99,12 @@ export default {
   name: 'HomeAside',
   methods: {
     switchRouter () {
-      if (!this.$store.state.personalInfo.islogin) {
-        this.$store.commit('SET_IS_LOGIN', true)
-      } else {
-        this.$router.push({ name: 'Write', params: { type: 'create' } })
-      }
+      // if (!this.$store.state.personalInfo.islogin) {
+      //   this.$store.commit('SET_IS_LOGIN', true)
+      // } else {
+      //   this.$router.push({ name: 'Write2', params: { type: 'create' } })
+      // }
+      this.$router.push({ name: 'Write2', params: { type: 'create' } })
     }
   },
   computed: {
@@ -231,7 +232,7 @@ export default {
           height: 1px;
           width: 64px;
           background: #2d2d2f;
-          content: "";
+          content: '';
         }
       }
       .hot-tags-more {
