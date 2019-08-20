@@ -41,7 +41,7 @@ export default {
           // this.$refs.login.reset()
           cookie.set('accessToken', res.data.token, 7)
           this.$store.commit('SET_IS_LOGIN', false)
-          window.location.reload()
+          // window.location.reload()
         } else {
           this.$message.warning(res.message)
         }
