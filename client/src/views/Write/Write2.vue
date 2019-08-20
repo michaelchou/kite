@@ -37,7 +37,7 @@
           </div>
         </div>
 
-        <!-- <div class="row mrg-bm20">
+        <div class="row mrg-bm20">
           <div class="col-xs-12 col-sm-6 col-md-6 box-form-group">
             <label class="box-label"
                    for="">个人专栏</label>
@@ -63,7 +63,7 @@
                       @click="isCreateBlogShow=true">创建新个人专栏</button>
             </div>
           </div>
-        </div> -->
+        </div>
 
         <div class="tag-warp">
           <p class="common-title">
