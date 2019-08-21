@@ -366,8 +366,6 @@ export default {
       } else if (this.write.wechart.trim().length === 0) {
         this.$message.warning('请输入微信号');
         return;
-      } else {
-        this.write.content = `${this.write.content}↵手机号：${this.write.phone}↵微信号：${this.write.wechart}`;
       }
       var params = {
         title: this.write.title, //文章的标题
@@ -381,6 +379,9 @@ export default {
           .getObjectValues(this.currentArticleTagArr)
           .join(",")
       };
+
+      params.content += `<p><br>手机号：${this.write.phone}<br>微信号：${this.write.wechart}</p>`;
+
       this.$route.params.type !== "create" &&
         (params.aid = this.$route.params.type);
 
