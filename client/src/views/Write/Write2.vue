@@ -367,7 +367,7 @@ export default {
         this.$message.warning('请输入微信号');
         return;
       } else {
-        this.write.content = `${this.write.content}<br>手机号：${this.write.phone}<br>微信号：${this.write.wechart}`;
+        this.write.content = `${this.write.content}↵手机号：${this.write.phone}↵微信号：${this.write.wechart}`;
       }
       var params = {
         title: this.write.title, //文章的标题
@@ -458,6 +458,7 @@ export default {
   .box-select {
     border: 1px solid #9199a1;
     border-radius: 6px;
+    margin-bottom: 10px;
   }
   .box-select {
     height: 36px;
