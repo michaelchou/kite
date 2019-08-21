@@ -141,6 +141,7 @@ class Article {
         ? 6
         : 1
 
+      console.log($.text(), '摘记');
       await models.article.create({
         uid: user.uid,
         title: xss(reqData.title),
