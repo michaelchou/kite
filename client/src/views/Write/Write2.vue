@@ -380,7 +380,7 @@ export default {
           .join(",")
       };
 
-      // params.content = `<p>手机号：${this.write.phone}<br>微信号：${this.write.wechart}</p><br>` + params.content;
+      params.content += `<br><p>手机号：${this.write.phone}<br>微信号：${this.write.wechart}</p>`;
 
       this.$route.params.type !== "create" &&
         (params.aid = this.$route.params.type);
