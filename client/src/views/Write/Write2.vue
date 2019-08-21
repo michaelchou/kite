@@ -10,7 +10,17 @@
           <input class="box-input title"
                  v-model="write.title"
                  type="text"
-                 placeholder="请输入文章标题">
+                 placeholder="请输入信息标题">
+
+          <input class="box-input title"
+                 v-model="write.phone"
+                 type="text"
+                 placeholder="请输入手机号">
+
+          <input class="box-input title"
+                 v-model="write.wechart"
+                 type="text"
+                 placeholder="请输入微信号">
 
         </div>
 
@@ -24,50 +34,50 @@
                         @imgAdd="$imgAdd" />
         </div>
 
-        <div class="row mrg-bm20">
-          <div class="col-xs-12 col-sm-6 col-md-6 box-form-group">
-            <label class="box-label"
-                   for="">来源</label>
-            <select class="box-select"
-                    v-model="write.source">
-              <option :value="item.id"
-                      v-for="(item,key) in sourceList"
-                      :key="key">{{item.text}}</option>
-            </select>
-          </div>
-        </div>
+<!--        <div class="row mrg-bm20">-->
+<!--          <div class="col-xs-12 col-sm-6 col-md-6 box-form-group">-->
+<!--            <label class="box-label"-->
+<!--                   for="">来源</label>-->
+<!--            <select class="box-select"-->
+<!--                    v-model="write.source">-->
+<!--              <option :value="item.id"-->
+<!--                      v-for="(item,key) in sourceList"-->
+<!--                      :key="key">{{item.text}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="row mrg-bm20">
-          <div class="col-xs-12 col-sm-6 col-md-6 box-form-group">
-            <label class="box-label"
-                   for="">个人专栏</label>
-            <select class="box-select"
-                    v-model="write.user_blog_ids">
-              <option :value="item.blog_id"
-                      v-for="(item,key) in userArticleBlogAll"
-                      :key="key">{{item.name}}</option>
-            </select>
-            <div class="create-blog">
-              <div class="create-blog-view"
-                   v-show="isCreateBlogShow">
-                <input class="create-blog-input box-input"
-                       v-model="blog.name"
-                       type="text" />
-                <button class="btn btn-primary btn-sm"
-                        @click="saveCreateBlog">保存</button>
-                <button class="btn btn-primary btn-sm"
-                        @click="isCreateBlogShow=false">取消</button>
-              </div>
-              <button class="btn btn-primary btn-sm"
-                      v-show="!isCreateBlogShow"
-                      @click="isCreateBlogShow=true">创建新个人专栏</button>
-            </div>
-          </div>
-        </div>
+<!--        <div class="row mrg-bm20">-->
+<!--          <div class="col-xs-12 col-sm-6 col-md-6 box-form-group">-->
+<!--            <label class="box-label"-->
+<!--                   for="">个人专栏</label>-->
+<!--            <select class="box-select"-->
+<!--                    v-model="write.user_blog_ids">-->
+<!--              <option :value="item.blog_id"-->
+<!--                      v-for="(item,key) in userArticleBlogAll"-->
+<!--                      :key="key">{{item.name}}</option>-->
+<!--            </select>-->
+<!--            <div class="create-blog">-->
+<!--              <div class="create-blog-view"-->
+<!--                   v-show="isCreateBlogShow">-->
+<!--                <input class="create-blog-input box-input"-->
+<!--                       v-model="blog.name"-->
+<!--                       type="text" />-->
+<!--                <button class="btn btn-primary btn-sm"-->
+<!--                        @click="saveCreateBlog">保存</button>-->
+<!--                <button class="btn btn-primary btn-sm"-->
+<!--                        @click="isCreateBlogShow=false">取消</button>-->
+<!--              </div>-->
+<!--              <button class="btn btn-primary btn-sm"-->
+<!--                      v-show="!isCreateBlogShow"-->
+<!--                      @click="isCreateBlogShow=true">创建新个人专栏</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <div class="tag-warp">
           <p class="common-title">
-            文章标签
+            标签
             <span>
               <em id="chosen_tag_num">{{currentArticleTagArr.length}}</em>/3
             </span>
@@ -106,7 +116,7 @@
 
         <div class="write-footer clearfix">
           <button class="send-article"
-                  @click="saveArticle">发布文章</button>
+                  @click="saveArticle">发布信息</button>
         </div>
 
       </client-only>
@@ -125,7 +135,7 @@ export default {
   name: 'write',
   metaInfo () {
     return {
-      title: "文章编辑",
+      title: "信息编辑",
       htmlAttrs: {
         lang: "zh"
       }
@@ -142,9 +152,11 @@ export default {
     return {
       write: {
         title: '', // 文章的标题
-        source: '', // 文章的来源
+        source: '1', // 文章的来源
         content: '', // 文章的内容
-        user_blog_ids: '', // 文章所属专栏ID
+        user_blog_ids: '1', // 文章所属专栏ID
+        wechart: '',
+        phone: ''
       },
       blog: {
         name: ''
@@ -348,6 +360,15 @@ export default {
         });
     },
     saveArticle () {
+      if (this.write.phone.trim().length === 0) {
+        this.$message.warning('请输入手机号');
+        return;
+      } else if (this.write.wechart.trim().length === 0) {
+        this.$message.warning('请输入微信号');
+        return;
+      } else {
+        this.write.content = `${this.write.content}<br>手机号：${this.write.phone}<br>微信号：${this.write.wechart}`;
+      }
       var params = {
         title: this.write.title, //文章的标题
         content: marked(this.write.content, { breaks: true }) /*主内容*/,
@@ -378,7 +399,7 @@ export default {
               params: { uid: this.personalInfo.user.uid }
             });
             this.$message.success(
-              "文章创建成功"
+              "信息创建成功"
             );
             // if (this.$route.params.type === "create") {
             //   this.$message.warning(
