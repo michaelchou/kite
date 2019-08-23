@@ -49,8 +49,8 @@
                :class="{'icon-quanping':!edit_full_screen,'icon-suoping':edit_full_screen}"></i>
           </li>
           <li>
-            <router-link class="article-rule"
-                         :to="{'name':'article_rule'}">《点我查看文章编写规范》</router-link>
+<!--            <router-link class="article-rule"-->
+<!--                         :to="{'name':'article_rule'}">《点我查看文章编写规范》</router-link>-->
           </li>
         </ul>
         <textarea class="write-textarea"

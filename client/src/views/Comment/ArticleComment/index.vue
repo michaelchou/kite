@@ -8,8 +8,8 @@
           已发布评论
           <em>{{articleComment.count}}</em> 条
         </small>
-        <router-link class="comment-rule"
-                     :to="{'name':'comment_rule'}">《点我查看评论规范》</router-link>
+<!--        <router-link class="comment-rule"-->
+<!--                     :to="{'name':'comment_rule'}">《点我查看评论规范》</router-link>-->
       </div>
       <comment-form @commentChange="commentChange" />
       <div class="comment-list"

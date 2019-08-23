@@ -82,10 +82,10 @@
                     <el-dropdown-menu slot="dropdown">
                       <el-dropdown-item icon="el-icon-user"
                                         :command="{name:'user',params:{uid:personalInfo.user.uid}}">我的主页</el-dropdown-item>
-                      <el-dropdown-item icon="el-icon-setting"
-                                        :command="{name:'setting'}">设置</el-dropdown-item>
-                      <el-dropdown-item icon="el-icon-right"
-                                        :command="{name:'esc'}">退出</el-dropdown-item>
+<!--                      <el-dropdown-item icon="el-icon-setting"-->
+<!--                                        :command="{name:'setting'}">设置</el-dropdown-item>-->
+<!--                      <el-dropdown-item icon="el-icon-right"-->
+<!--                                        :command="{name:'esc'}">退出</el-dropdown-item>-->
                     </el-dropdown-menu>
                   </el-dropdown>
                 </li>
