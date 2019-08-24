@@ -6,7 +6,9 @@
                 <!-- this component will only be rendered on client-side -->
 
                 <div class="write-top  box-form-group">
-
+                    <p class="common-title">
+                        标题
+                    </p>
                     <input class="box-input title"
                            v-model="write.title"
                            type="text"
@@ -16,6 +18,9 @@
                 </div>
 
                 <div class="write mrg-bm20">
+                    <p class="common-title">
+                        内容
+                    </p>
                     <mavon-editor defaultOpen="edit"
                                   :boxShadow="false"
                                   v-model="write.content"
@@ -27,16 +32,18 @@
 
 
                 <div class="write-top  box-form-group">
-
+                    <p class="common-title">
+                        联系方式
+                    </p>
                     <input class="box-input title"
-                           v-model="write.phone"
+                           v-model="write.contact"
                            type="text"
-                           placeholder="请输入手机号">
+                           placeholder="请输入手机号或微信号">
 
-                    <input class="box-input title"
-                           v-model="write.wechart"
-                           type="text"
-                           placeholder="请输入微信号">
+                    <!--                    <input class="box-input title"-->
+                    <!--                           v-model="write.wechart"-->
+                    <!--                           type="text"-->
+                    <!--                           placeholder="请输入微信号">-->
                 </div>
 
                 <!--        <div class="row mrg-bm20">-->
@@ -121,7 +128,7 @@
 
                 <div class="write-footer clearfix">
                     <button class="send-article"
-                            @click="saveArticle">发布信息
+                            @click.once="saveArticle">发布信息
                     </button>
                 </div>
 
@@ -162,8 +169,8 @@
           source: '1', // 文章的来源
           content: '', // 文章的内容
           user_blog_ids: '1', // 文章所属专栏ID
-          wechart: '',
-          phone: ''
+          contact: '',
+          // phone: ''
         },
         blog: {
           name: ''
@@ -367,13 +374,14 @@
           })
       },
       saveArticle () {
-        if (this.write.phone.trim().length === 0) {
-          this.$message.warning('请输入手机号')
-          return
-        } else if (this.write.wechart.trim().length === 0) {
-          this.$message.warning('请输入微信号')
+        if (this.write.contact.trim().length === 0) {
+          this.$message.warning('请输入您的联系方式')
           return
         }
+        // else if (this.write.wechart.trim().length === 0) {
+        //   this.$message.warning('请输入微信号')
+        //   return
+        // }
         var params = {
           title: this.write.title, //文章的标题
           content: marked(this.write.content, { breaks: true }) /*主内容*/,
@@ -388,7 +396,7 @@
           article_tag_ids: 'MgK3Isbwtlf'
         }
 
-        params.content += `<br><p>手机号：${this.write.phone}<br>微信号：${this.write.wechart}</p>`
+        params.content += `<br>联系方式：${this.write.contact}</p>`
 
         this.$route.params.type !== 'create' &&
         (params.aid = this.$route.params.type)

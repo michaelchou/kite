@@ -68,7 +68,7 @@
                   <router-link :to="{name:'Write2',params:{type:'create'}}"
                                class="btn btn-sm btn-outline-warning xiezuo">
 <!--                    <i class="iconfont icon-xiezuo"></i>-->
-                  <div>
+                  <div class="new_article">
                     <el-image :src="website.meta.new_article"
                               lazy></el-image>
                   </div>
@@ -311,6 +311,22 @@ export default {
                   border: none;
                   padding: 0 8px;
                   background-color: transparent;
+                }
+              }
+            }
+            .new_article{
+              display: inline-block;
+              position: relative;
+              width: 36px;
+              height: 36px;
+              border-radius: 72px;
+              /deep/ .el-image {
+                width: 36px;
+                height: 36px;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 80px;
                 }
               }
             }
