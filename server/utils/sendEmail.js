@@ -26,6 +26,9 @@ if (config.email.type === 'company') {
   smtpTransport = nodemailer.createTransport(
     smtpTransport({
       service: config.email.service,
+      host: 'smtp.gmail.com',
+      secure: true,
+      port: 465,
       auth: {
         user: config.email.user,
         pass: config.email.pass
