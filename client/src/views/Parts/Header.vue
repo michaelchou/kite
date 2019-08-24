@@ -55,7 +55,7 @@
                          required="true"
                          v-model="search_val"
                          name="search"
-                         placeholder="搜索文章"
+                         placeholder="搜索信息"
                          aria-label="Search" />
                   <button class="search-btn"
                           @click="search">
