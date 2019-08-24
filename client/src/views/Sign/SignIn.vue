@@ -81,7 +81,7 @@ export default {
     }
   },
   created () {
-    this.login();
+    // this.login();
   },
   methods: {
     login () {

@@ -412,7 +412,7 @@
             if (res.state === 'success') {
               this.create_show_modal = false
               this.$router.push({
-                name: 'home',
+                name: 'userBlog',
                 params: { uid: this.personalInfo.user.uid }
               })
               this.$message.success(
