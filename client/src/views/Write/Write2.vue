@@ -396,7 +396,7 @@
           article_tag_ids: 'MgK3Isbwtlf'
         }
 
-        params.content += `<br>联系方式：${this.write.contact}</p>`
+        params.content += `<br>联系电话或微信：${this.write.contact}</p>`
 
         this.$route.params.type !== 'create' &&
         (params.aid = this.$route.params.type)
