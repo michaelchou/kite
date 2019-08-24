@@ -62,6 +62,7 @@ export function fetch ({ url, method, parameter, moreConfig = {} }) {
       .then(res => {
         const val = res.data
         logRequests && console.log(`fetched ${url}.`)
+        console.log('xxxxx', val)
         resolve(val)
       }, reject)
       .catch(reject)

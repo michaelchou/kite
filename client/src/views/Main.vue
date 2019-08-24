@@ -13,16 +13,16 @@ import { cookie } from '../../../server/utils/cookie'
 
 export default {
   name: 'Main',
-  data () {
-    return {
-      formData: {
-        email: 'michaelchoou@sina.com',
-        phone: '',
-        type: 'email',
-        password: 'zf18021510064',
-      }
-    }
-  },
+  // data () {
+  //   return {
+  //     formData: {
+  //       email: '',
+  //       phone: '',
+  //       type: 'email',
+  //       password: 'zf18021510064',
+  //     }
+  //   }
+  // },
   asyncData ({ store, route, accessToken = '' }) {
     // 触发 action 后，会返回 Promise
     return Promise.all([
@@ -32,24 +32,24 @@ export default {
       store.dispatch('user/GET_UNREAD_MESSAGE_COUNT')
     ])
   },
-  created () {
-    if (!this.$store.state.personalInfo.islogin) {
-      this.$store.dispatch('sign/LOGIN', this.formData)
-        .then(res => {
-          console.log(res, 'auto login');
-          if (res.state === 'success') {
-            // this.$message.success(res.message)
-            // this.$refs.login.reset()
-            cookie.set('accessToken', res.data.token, 7)
-            this.$store.commit('SET_IS_LOGIN', false)
-            window.location.reload()
-          } else {
-            this.$message.warning(res.message)
-          }
-        })
-    }
-
-  },
+  // created () {
+  //   if (!this.$store.state.personalInfo.islogin) {
+  //     this.$store.dispatch('sign/LOGIN', this.formData)
+  //       .then(res => {
+  //         console.log(res, 'auto login');
+  //         if (res.state === 'success') {
+  //           // this.$message.success(res.message)
+  //           // this.$refs.login.reset()
+  //           cookie.set('accessToken', res.data.token, 7)
+  //           this.$store.commit('SET_IS_LOGIN', false)
+  //           window.location.reload()
+  //         } else {
+  //           this.$message.warning(res.message)
+  //         }
+  //       })
+  //   }
+  //
+  // },
   components: {
     'box-header': header,
     'global-alert': globalAlert

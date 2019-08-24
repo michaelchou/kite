@@ -148,6 +148,7 @@ class User {
             verify_code: random,
             type: 'register'
           })
+          console.log(reqData)
           await sendVerifyCodeMail(reqData.email, '注册验证码', random)
           resClientJson(ctx, {
             state: 'success',
