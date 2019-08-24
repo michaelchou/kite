@@ -67,7 +67,11 @@
                 <li class="nav-item">
                   <router-link :to="{name:'Write2',params:{type:'create'}}"
                                class="btn btn-sm btn-outline-warning xiezuo">
-                    <i class="iconfont icon-xiezuo"></i>
+<!--                    <i class="iconfont icon-xiezuo"></i>-->
+                  <div>
+                    <el-image :src="website.meta.new_article"
+                              lazy></el-image>
+                  </div>
                   </router-link>
                 </li>
                 <li class="nav-item dropdown">
