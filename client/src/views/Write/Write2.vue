@@ -38,7 +38,7 @@
                     <input class="box-input title"
                            v-model="write.contact"
                            type="text"
-                           placeholder="请输入手机号或微信号">
+                           placeholder="请输入微信号或手机号">
 
                     <!--                    <input class="box-input title"-->
                     <!--                           v-model="write.wechart"-->
