@@ -350,8 +350,8 @@
           })
       },
       imageFilter (file) {
-        if (file.size > 1 * 1024 * 1024) {
-          this.$message.success('上传文章图片应该小于1M')
+        if (file.size > 10 * 1024 * 1024) {
+          this.$message.success('上传文章图片应该小于10M')
           return false
         } else {
           return true

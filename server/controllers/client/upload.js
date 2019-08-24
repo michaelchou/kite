@@ -85,7 +85,7 @@ class Upload {
     } catch (err) {
       resClientJson(ctx, {
         state: 'error',
-        message: '上传图片大于1m'
+        message: '上传图片大于10m'
       })
       return false
     }

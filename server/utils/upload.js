@@ -37,7 +37,7 @@ module.exports = type => {
   })
 
   let limits = {
-    fileSize: 1 * 1024 * 1024
+    fileSize: 10 * 1024 * 1024
   }
 
   return multer({
